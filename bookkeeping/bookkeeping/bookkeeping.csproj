@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
-    <Content Include="App_Code\DataClasses.dbml">
+    <Content Include="App_Data\DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
@@ -87,7 +87,7 @@
     <Content Include="Revenue.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DataClasses.designer.cs">
+    <Compile Include="App_Data\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
@@ -119,9 +119,12 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Code\DataClasses.dbml.layout">
+    <None Include="App_Data\DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

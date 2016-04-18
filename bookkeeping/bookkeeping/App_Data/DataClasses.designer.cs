@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace bookkeeping.App_Code
+namespace bookkeeping.App_Data
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

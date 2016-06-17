@@ -186,8 +186,9 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-*.mdf
-*.ldf
+# CD: Allowing database files for this project!
+#*.mdf
+#*.ldf
 
 # Business Intelligence projects
 *.rdl.data

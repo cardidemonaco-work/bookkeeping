@@ -10,7 +10,7 @@
 namespace bookkeeping {
     
     
-    public partial class WebForm2 {
+    public partial class Revenue {
         
         /// <summary>
         /// txtName control.
@@ -38,15 +38,6 @@ namespace bookkeeping {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
-        
-        /// <summary>
-        /// cbLowLevel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbLowLevel;
         
         /// <summary>
         /// btnRevenueSubmit control.

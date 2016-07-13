@@ -1,48 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using bookkeeping.App_Data;
+
 
 namespace bookkeeping
 {
+
+
     public partial class Revenue : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        DataClassesDataContext _dc = new DataClassesDataContext();
 
-        }
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+
+        //}
 
         protected void btnRevenueSubmit_Click(object sender, EventArgs e)
         {
-            //Declare varibles and save values from form
+            //Declare variables and save values from form
             string name = txtName.Text;
             string desc = txtDescription.Text;
+            decimal amount = Convert.ToDecimal(txtAmount.Text);
 
-            //string s2 = string.Format("{0:#,0.#}", float.Parse(s));
-            //https://social.msdn.microsoft.com/Forums/vstudio/en-US/c9adb495-2077-4084-b779-380b97f8c60f/convert-string-value-to-currency-format?forum=csharpgeneral
-            string amount = txtAmount.Text;
-            //amount = string.Format("{0:#,0.#}", float.Parse(amount));
+            //Insert Transaction into the database
+            TransactionInsert(name, desc, amount);
+        }
 
-
-            bool lowlevel = cbLowLevel.Checked;
-            App_Data.DataClassesDataContext dc = new App_Data.DataClassesDataContext();
-            
-
-            //Put together LINQ statement and insert into the database
-            App_Data.transaction rev = new App_Data.transaction
+        /// <summary>
+        /// Inserts a Transaction (Revenue or Expense) into the database
+        /// </summary>
+        /// <param name="name">Name of the Transaction (Revenue or Expense)</param>
+        /// <param name="description">Description of the Transaction (Revenue or Expense)</param>
+        /// <param name="amount">Amount of the Transaction (Revenue or Expense)</param>
+        public void TransactionInsert(string name, string description, decimal amount)
+        {
+            //Put together LINQ statement and INSERT into the database
+            transaction rev = new transaction
             {
                 transaction_name = name,
-                transaction_description = desc,
-                transaction_amount = 10.33M, //CURRENTLY STATIC
-                transaction_low_level = 1 //1=true CURRENTLY STATIC
+                transaction_description = description,
+                transaction_amount = amount
             };
 
-            dc.transactions.InsertOnSubmit(rev);
-            dc.SubmitChanges();
-
+            _dc.transactions.InsertOnSubmit(rev);
+            _dc.SubmitChanges();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace bookkeeping.App_Data
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["bookkeepingConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["bookkeepingConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -88,11 +88,9 @@ namespace bookkeeping.App_Data
 		
 		private decimal _transaction_amount;
 		
-		private int _transaction_low_level;
+		private System.Nullable<int> _transaction_payer_id;
 		
-		private System.Nullable<int> _transaction_payer;
-		
-		private System.Nullable<int> _transaction_payee;
+		private System.Nullable<int> _transaction_payee_id;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -106,12 +104,10 @@ namespace bookkeeping.App_Data
     partial void Ontransaction_descriptionChanged();
     partial void Ontransaction_amountChanging(decimal value);
     partial void Ontransaction_amountChanged();
-    partial void Ontransaction_low_levelChanging(int value);
-    partial void Ontransaction_low_levelChanged();
-    partial void Ontransaction_payerChanging(System.Nullable<int> value);
-    partial void Ontransaction_payerChanged();
-    partial void Ontransaction_payeeChanging(System.Nullable<int> value);
-    partial void Ontransaction_payeeChanged();
+    partial void Ontransaction_payer_idChanging(System.Nullable<int> value);
+    partial void Ontransaction_payer_idChanged();
+    partial void Ontransaction_payee_idChanging(System.Nullable<int> value);
+    partial void Ontransaction_payee_idChanged();
     #endregion
 		
 		public transaction()
@@ -139,7 +135,7 @@ namespace bookkeeping.App_Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_name", DbType="VarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_name", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
 		public string transaction_name
 		{
 			get
@@ -199,62 +195,42 @@ namespace bookkeeping.App_Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_low_level", DbType="Int NOT NULL")]
-		public int transaction_low_level
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_payer_id", DbType="Int")]
+		public System.Nullable<int> transaction_payer_id
 		{
 			get
 			{
-				return this._transaction_low_level;
+				return this._transaction_payer_id;
 			}
 			set
 			{
-				if ((this._transaction_low_level != value))
+				if ((this._transaction_payer_id != value))
 				{
-					this.Ontransaction_low_levelChanging(value);
+					this.Ontransaction_payer_idChanging(value);
 					this.SendPropertyChanging();
-					this._transaction_low_level = value;
-					this.SendPropertyChanged("transaction_low_level");
-					this.Ontransaction_low_levelChanged();
+					this._transaction_payer_id = value;
+					this.SendPropertyChanged("transaction_payer_id");
+					this.Ontransaction_payer_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_payer", DbType="Int")]
-		public System.Nullable<int> transaction_payer
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_payee_id", DbType="Int")]
+		public System.Nullable<int> transaction_payee_id
 		{
 			get
 			{
-				return this._transaction_payer;
+				return this._transaction_payee_id;
 			}
 			set
 			{
-				if ((this._transaction_payer != value))
+				if ((this._transaction_payee_id != value))
 				{
-					this.Ontransaction_payerChanging(value);
+					this.Ontransaction_payee_idChanging(value);
 					this.SendPropertyChanging();
-					this._transaction_payer = value;
-					this.SendPropertyChanged("transaction_payer");
-					this.Ontransaction_payerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_transaction_payee", DbType="Int")]
-		public System.Nullable<int> transaction_payee
-		{
-			get
-			{
-				return this._transaction_payee;
-			}
-			set
-			{
-				if ((this._transaction_payee != value))
-				{
-					this.Ontransaction_payeeChanging(value);
-					this.SendPropertyChanging();
-					this._transaction_payee = value;
-					this.SendPropertyChanged("transaction_payee");
-					this.Ontransaction_payeeChanged();
+					this._transaction_payee_id = value;
+					this.SendPropertyChanged("transaction_payee_id");
+					this.Ontransaction_payee_idChanged();
 				}
 			}
 		}

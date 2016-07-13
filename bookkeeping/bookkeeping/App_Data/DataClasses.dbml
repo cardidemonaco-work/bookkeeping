@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bookkeeping" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=cd-dt-sql2012.clients.nasa.cpwr.corp;Initial Catalog=bookkeeping;Persist Security Info=True;User ID=dt" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="bookkeepingConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\bookkeeping.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="bookkeepingConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.[transaction]" Member="transactions">
     <Type Name="transaction">
       <Column Name="transaction_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="transaction_name" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="transaction_name" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="transaction_description" Type="System.String" DbType="VarChar(5000)" CanBeNull="true" />
       <Column Name="transaction_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="transaction_low_level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="transaction_payer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="transaction_payee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="transaction_payer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="transaction_payee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

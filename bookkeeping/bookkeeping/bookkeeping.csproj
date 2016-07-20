@@ -90,12 +90,13 @@
     <Content Include="Revenue.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common\Database.cs" />
+    <Compile Include="Common\Test.cs" />
     <Compile Include="App_Data\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Expenditure.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +119,7 @@
     <Compile Include="Revenue.aspx.designer.cs">
       <DependentUpon>Revenue.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

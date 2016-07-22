@@ -7,12 +7,12 @@ namespace bookkeeping
 {
     public class Transaction
     {
+        DataClassesDataContext _dc = new DataClassesDataContext();
+
         public Transaction()
         {
             //asdf
         }
-
-        DataClassesDataContext _dc = new DataClassesDataContext();
 
         /// <summary>
         /// Inserts a Transaction (Revenue or Expense) into the database
@@ -32,6 +32,25 @@ namespace bookkeeping
 
             _dc.transactions.InsertOnSubmit(rev);
             _dc.SubmitChanges();
+        }
+
+        public void Update(int key, string name, string description, decimal amount)
+        {
+            transaction rev = new transaction
+            {
+                transaction_id = key,
+                transaction_name = name,
+                transaction_description = description,
+                transaction_amount = amount
+            };
+
+            _dc.SubmitChanges(); //Will the UPDATE run? I don't think so... need to figure out how to update
+           
+        }
+
+        public void Delete(int key)
+        {
+           
         }
     }
 }

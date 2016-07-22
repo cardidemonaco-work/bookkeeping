@@ -26,6 +26,8 @@ namespace bookkeeping
             //Insert Transaction into the database
             Transaction t = new Transaction();
             t.Insert(name, desc, amount);
+
+            
         }
     }
 }

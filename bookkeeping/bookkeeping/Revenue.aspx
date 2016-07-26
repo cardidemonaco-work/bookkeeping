@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
-        Add Revenue</p>
+        <strong>Add Revenue</strong></p>
     <p>
         <asp:TextBox ID="txtName" runat="server">[NAME]</asp:TextBox>
         <asp:TextBox ID="txtDescription" runat="server">[DESCRIPTION]</asp:TextBox>
@@ -13,11 +13,13 @@
 &nbsp;<asp:Button ID="btnRevenueSubmit" runat="server" OnClick="btnRevenueSubmit_Click" Text="Submit Revenue" />
     </p>
     <p>
-        Last 10 Revenue</p>
+        <strong>Last 10 Revenue</strong></p>
     <p>
-        &nbsp;</p>
+        Here are the last 10 submissions...</p>
     <p>
-        Highest 10 Revenue</p>
+        <strong>Highest 10 Revenue</strong></p>
+    <p>
+        Here are the highest 10 submissions of the past 6 months...</p>
     <p>
         &nbsp;</p>
 </asp:Content>

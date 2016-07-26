@@ -75,6 +75,7 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Parties.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -90,6 +91,7 @@
     <Content Include="Revenue.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Party.cs" />
     <Compile Include="Common\Test.cs" />
     <Compile Include="App_Data\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -120,6 +122,13 @@
       <DependentUpon>Revenue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\Transaction.cs" />
+    <Compile Include="Parties.aspx.cs">
+      <DependentUpon>Parties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parties.aspx.designer.cs">
+      <DependentUpon>Parties.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

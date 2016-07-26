@@ -33,6 +33,12 @@ namespace bookkeeping.App_Data
     partial void Inserttransaction(transaction instance);
     partial void Updatetransaction(transaction instance);
     partial void Deletetransaction(transaction instance);
+    partial void Insertparty(party instance);
+    partial void Updateparty(party instance);
+    partial void Deleteparty(party instance);
+    partial void Insertorganization(organization instance);
+    partial void Updateorganization(organization instance);
+    partial void Deleteorganization(organization instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -70,6 +76,22 @@ namespace bookkeeping.App_Data
 			get
 			{
 				return this.GetTable<transaction>();
+			}
+		}
+		
+		public System.Data.Linq.Table<party> parties
+		{
+			get
+			{
+				return this.GetTable<party>();
+			}
+		}
+		
+		public System.Data.Linq.Table<organization> organizations
+		{
+			get
+			{
+				return this.GetTable<organization>();
 			}
 		}
 	}
@@ -231,6 +253,226 @@ namespace bookkeeping.App_Data
 					this._transaction_payee_id = value;
 					this.SendPropertyChanged("transaction_payee_id");
 					this.Ontransaction_payee_idChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.party")]
+	public partial class party : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _party_id;
+		
+		private string _party_name;
+		
+		private string _party_description;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onparty_idChanging(int value);
+    partial void Onparty_idChanged();
+    partial void Onparty_nameChanging(string value);
+    partial void Onparty_nameChanged();
+    partial void Onparty_descriptionChanging(string value);
+    partial void Onparty_descriptionChanged();
+    #endregion
+		
+		public party()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_party_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int party_id
+		{
+			get
+			{
+				return this._party_id;
+			}
+			set
+			{
+				if ((this._party_id != value))
+				{
+					this.Onparty_idChanging(value);
+					this.SendPropertyChanging();
+					this._party_id = value;
+					this.SendPropertyChanged("party_id");
+					this.Onparty_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_party_name", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string party_name
+		{
+			get
+			{
+				return this._party_name;
+			}
+			set
+			{
+				if ((this._party_name != value))
+				{
+					this.Onparty_nameChanging(value);
+					this.SendPropertyChanging();
+					this._party_name = value;
+					this.SendPropertyChanged("party_name");
+					this.Onparty_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_party_description", DbType="VarChar(5000)")]
+		public string party_description
+		{
+			get
+			{
+				return this._party_description;
+			}
+			set
+			{
+				if ((this._party_description != value))
+				{
+					this.Onparty_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._party_description = value;
+					this.SendPropertyChanged("party_description");
+					this.Onparty_descriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.organization")]
+	public partial class organization : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _organization_id;
+		
+		private string _organization_name;
+		
+		private string _organization_description;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onorganization_idChanging(int value);
+    partial void Onorganization_idChanged();
+    partial void Onorganization_nameChanging(string value);
+    partial void Onorganization_nameChanged();
+    partial void Onorganization_descriptionChanging(string value);
+    partial void Onorganization_descriptionChanged();
+    #endregion
+		
+		public organization()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_organization_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int organization_id
+		{
+			get
+			{
+				return this._organization_id;
+			}
+			set
+			{
+				if ((this._organization_id != value))
+				{
+					this.Onorganization_idChanging(value);
+					this.SendPropertyChanging();
+					this._organization_id = value;
+					this.SendPropertyChanged("organization_id");
+					this.Onorganization_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_organization_name", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string organization_name
+		{
+			get
+			{
+				return this._organization_name;
+			}
+			set
+			{
+				if ((this._organization_name != value))
+				{
+					this.Onorganization_nameChanging(value);
+					this.SendPropertyChanging();
+					this._organization_name = value;
+					this.SendPropertyChanged("organization_name");
+					this.Onorganization_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_organization_description", DbType="VarChar(5000)")]
+		public string organization_description
+		{
+			get
+			{
+				return this._organization_description;
+			}
+			set
+			{
+				if ((this._organization_description != value))
+				{
+					this.Onorganization_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._organization_description = value;
+					this.SendPropertyChanged("organization_description");
+					this.Onorganization_descriptionChanged();
 				}
 			}
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using bookkeeping.App_Data;
 
-namespace bookkeeping
+namespace bookkeeping.Common
 {
     public class Transaction
     {

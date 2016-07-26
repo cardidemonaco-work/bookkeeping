@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using bookkeeping;
+using bookkeeping.Common;
 
 namespace bookkeeping
 {
     public partial class Revenue : System.Web.UI.Page
     {
-        //DataClassesDataContext _dc = new DataClassesDataContext();
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            string test;
-            test = "test";
-            test = "new test";
+            if (!IsPostBack)
+            {
+                Party p = new Party();
+                ddlRevenueParty.DataSource = p.GetAllParties();
+                ddlRevenueParty.DataTextField = "party_name";
+                ddlRevenueParty.DataValueField = "party_id";
+                ddlRevenueParty.DataBind();
+                ddlRevenueParty.Items.Insert(0, "-- Select a Party --");
+            }
         }
 
         protected void btnRevenueSubmit_Click(object sender, EventArgs e)
@@ -25,9 +29,7 @@ namespace bookkeeping
 
             //Insert Transaction into the database
             Transaction t = new Transaction();
-            t.Insert(name, desc, amount);
-
-            
+            t.Insert(name, desc, amount);          
         }
     }
 }

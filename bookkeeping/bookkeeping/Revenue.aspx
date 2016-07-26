@@ -8,6 +8,8 @@
         <asp:TextBox ID="txtName" runat="server">[NAME]</asp:TextBox>
         <asp:TextBox ID="txtDescription" runat="server">[DESCRIPTION]</asp:TextBox>
         <asp:TextBox ID="txtAmount" runat="server">$</asp:TextBox>
+        <asp:DropDownList ID="ddlRevenueParty" runat="server">
+        </asp:DropDownList>
 &nbsp;<asp:Button ID="btnRevenueSubmit" runat="server" OnClick="btnRevenueSubmit_Click" Text="Submit Revenue" />
     </p>
     <p>

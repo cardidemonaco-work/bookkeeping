@@ -4,13 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>bookkeeping by Cardi DeMonaco Jr</title>
+    <style>
+        body { background-color: #D5D8DC; }
+        div.mainPage{ background-color: whitesmoke; 
+                      border: 1px solid black; border-radius: 5px 5px;
+                      margin-left: 10%; margin-right: 10%; 
+                      padding: 10px;
+                      width: 80%; }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="mainPage">
         <h1>bookkeeping</h1>
         <asp:Menu ID="bookkeepingMenu" runat="server">
             <Items>
